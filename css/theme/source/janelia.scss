@@ -1,7 +1,7 @@
 /**
- * White theme for reveal.js. This is the opposite of the 'black' theme.
+ * janelia theme for reveal.js. This is based on the 'white' theme.
  *
- * By Hakim El Hattab, http://hakim.se
+ * By Chris Barnes, https://github.com/clbarnes
  */
 
 
@@ -14,6 +14,15 @@
 // Include theme-specific fonts
 @import url(../../lib/font/source-sans-pro/source-sans-pro.css);
 
+// Colours used by Beamer theme
+$HHMIBlue: #058d96;
+$HHMIBlack: #000;
+$HHMIGreenA: #8ac341;
+$HHMIGreenB: #2da948;
+$HHMIWhite: #fff;
+$HHMIGrayA: #838286;
+$HHMIGrayB: #aaaaaa;
+$HHMIGrayC: #dcdcdc;
 
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: #fff;
@@ -26,16 +35,20 @@ $mainFont: 'Source Sans Pro', Helvetica, sans-serif;
 $headingFont: 'Source Sans Pro', Helvetica, sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
-$headingTextTransform: uppercase;
+$headingTextTransform: none;
 $headingFontWeight: 600;
 $linkColor: #2a76dd;
 $linkColorHover: lighten( $linkColor, 15% );
 $selectionBackgroundColor: lighten( $linkColor, 25% );
 
-$heading1Size: 2.5em;
-$heading2Size: 1.6em;
-$heading3Size: 1.3em;
+$heading1Size: 2.0em;
+$heading2Size: 1.3em;
+$heading3Size: 1.0em;
 $heading4Size: 1.0em;
+
+section {
+	word-spacing: 0.25em;
+}
 
 section.has-dark-background {
 	&, h1, h2, h3, h4, h5, h6 {
@@ -43,6 +56,32 @@ section.has-dark-background {
 	}
 }
 
+section.title-slide {
+	@extend .has-dark-background;
+	text-align: left;
+}
+
+section:not(.title-slide) {
+	h1 {
+		width: 100%;
+		//position: fixed;
+		top: 0;
+		left: 0;
+		text-align: left;
+		border-bottom-color: $HHMIGreenB;
+		border-bottom-style: solid;
+		border-bottom-width: thick;
+		margin-bottom: 1em;
+	}
+}
+
+.reveal .progress {
+	height: 15px;
+	background-color: $HHMIGrayB;
+	.reveal .progress span {
+		background-color: $HHMIGreenB;
+	}
+}
 
 // Theme template ------------------------------
 @import "../template/theme";

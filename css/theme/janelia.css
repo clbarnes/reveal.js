@@ -1,11 +1,33 @@
 /**
- * White theme for reveal.js. This is the opposite of the 'black' theme.
+ * janelia theme for reveal.js. This is based on the 'white' theme.
  *
- * By Hakim El Hattab, http://hakim.se
+ * By Chris Barnes, https://github.com/clbarnes
  */
 @import url(../../lib/font/source-sans-pro/source-sans-pro.css);
-section.has-dark-background, section.has-dark-background h1, section.has-dark-background h2, section.has-dark-background h3, section.has-dark-background h4, section.has-dark-background h5, section.has-dark-background h6 {
+section {
+  word-spacing: 0.25em; }
+
+section.has-dark-background, section.title-slide, section.has-dark-background h1, section.title-slide h1, section.has-dark-background h2, section.title-slide h2, section.has-dark-background h3, section.title-slide h3, section.has-dark-background h4, section.title-slide h4, section.has-dark-background h5, section.title-slide h5, section.has-dark-background h6, section.title-slide h6 {
   color: #fff; }
+
+section.title-slide {
+  text-align: left; }
+
+section:not(.title-slide) h1 {
+  width: 100%;
+  top: 0;
+  left: 0;
+  text-align: left;
+  border-bottom-color: #2da948;
+  border-bottom-style: solid;
+  border-bottom-width: thick;
+  margin-bottom: 1em; }
+
+.reveal .progress {
+  height: 15px;
+  background-color: #aaaaaa; }
+  .reveal .progress .reveal .progress span {
+    background-color: #2da948; }
 
 /*********************************************
  * GLOBAL STYLES
@@ -50,18 +72,18 @@ body {
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: normal;
-  text-transform: uppercase;
+  text-transform: none;
   text-shadow: none;
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 2.5em; }
+  font-size: 2em; }
 
 .reveal h2 {
-  font-size: 1.6em; }
+  font-size: 1.3em; }
 
 .reveal h3 {
-  font-size: 1.3em; }
+  font-size: 1em; }
 
 .reveal h4 {
   font-size: 1em; }

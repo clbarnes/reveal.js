@@ -1,10 +1,11 @@
 <!doctype html>
-<html>
+<html xmlns:vertical-align="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>reveal.js theme: HHMI Janelia</title>
+		<meta name="author" content="Chris Barnes">
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/janelia.css">
@@ -20,14 +21,93 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+
+		<!--Colours-->
+		<script>
+			HHMIBlue = "#058d96";
+			HHMIBlack = "#000";
+			HHMIGreenA = "#8ac341";
+			HHMIGreenB = "#2da948";
+			HHMIWhite = "#fff";
+			HHMIGrayA = "#838286";
+			HHMIGrayB = "#aaa";
+			HHMIGrayC = "#dcdcdc";
+		</script>
+
 	</head>
 	<body>
 		<div class="reveal">
+			<!--<header></header>-->
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+
+<!--SLIDES START HERE-->
+
+<section class="title-slide" data-background="linear-gradient(to right, #058d96, #8ac341)">
+	<div style="display: table; width: 100%; margin-bottom: 20%">
+		<div style="width: 50%; display: table-cell; vertical-align: middle">
+			<img class="plain" src="img/HHMI_Janelia_White.svg"
+				 style="background: none; max-width: 70%; min-height: 50%; vertical-align: middle;
+				 width: auto; height: auto; padding: 0; margin: 0;">
+		</div>
+
+		<div style="width: 50%; display: table-cell; vertical-align: middle; padding: 0; margin: 0;">
+			<h3 id="author" style="text-align: right"></h3>
+			<h3 id="date" style="text-align: right; vertical-align: text-bottom; padding: 0; margin: 0;"></h3>
+		</div>
+	</div>
+	<h1 id="title"></h1>
+	<h2 id="subtitle">Inspired by gh:saalfeldlab/Beamer-Theme-Janelia</h2>
+</section>
+
+<section>
+	<h1 class="slide-header">Slide 2 title</h1>
+
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	Curabitur egestas pulvinar pharetra.
+	Quisque facilisis ullamcorper felis, non tempor ex fringilla quis.
+	Mauris venenatis massa eget porta egestas.
+	Donec scelerisque, tortor ac vehicula ultricies, augue nisl sollicitudin elit, eget tincidunt justo metus eget eros.
+	Mauris in nisl id purus iaculis pellentesque.
+
+</section>
+
+<section data-markdown>
+	<textarea data-template>
+		# A markdown slide
+
+		- Good job including this, Barry
+		- Thanks, other Barry
+
+	</textarea>
+</section>
+
+<!--SLIDES END HERE-->
+
 			</div>
 		</div>
+
+		<script>
+			const titleNode = document.getElementById("title");
+			if (!titleNode.innerHTML) {
+				 titleNode.innerHTML = document.title;
+			}
+
+			const authorNode = document.getElementById("author");
+			if (!authorNode.innerHTML) {
+				 for (let meta of document.getElementsByTagName("meta")) {
+					  if (meta.getAttribute("name") === "author") {
+							authorNode.innerHTML = meta.getAttribute("content");
+							break;
+					  }
+				 }
+			}
+
+			const dateNode = document.getElementById("date");
+			if (!dateNode.innerHTML) {
+				 const today = new Date();
+				 dateNode.innerHTML = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
+			}
+		</script>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
@@ -37,6 +117,9 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				transitionSpeed: "fast",
+				progress: true,
+				controlsTutorial: true,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
